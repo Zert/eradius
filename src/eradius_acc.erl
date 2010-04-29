@@ -275,8 +275,10 @@ code_change(_OldVsn, State, _Extra) ->
 %%% Internal functions
 %%% -------------------------------------------------------------------
 
+%% punch(Srvs, Timeout, Req) ->
+%%     spawn(fun() -> do_punch(Srvs, Timeout, Req) end).
 punch(Srvs, Timeout, Req) ->
-    spawn(fun() -> do_punch(Srvs, Timeout, Req) end).
+    do_punch(Srvs, Timeout, Req).
 
 do_punch([], _Timeout, _Req) ->
     %% FIXME some nice syslog message somewhere perhaps ?
